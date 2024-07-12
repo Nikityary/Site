@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр запросов</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Запросы пользователей</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Запроса</th>
+                <th>Имя Пользователя</th>
+                <th>Email</th>
+                <th>Детали</th>
+            </tr>
+        </thead>
+        <tbody id="requestsTable">
+            <!-- Данные будут подгружаться сюда -->
+        </tbody>
+    </table>
+
+    <div class="buttons">
+        <button class="button" onclick="checkForNewRecords()">Проверить на новые записи</button>
+        <a href="index.html" class="button">Выйти</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            loadRequests();
+        });
+
+        function loadRequests() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'php/getTable.php', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('requestsTable').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+
+        function checkForNewRecords() {
+            loadRequests();
+        }
+    </script>
+</body>
+</html>

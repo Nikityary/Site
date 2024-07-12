@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+</head>
+<body>
+    <section class="contact-me observer-section" id="contact-me">
+        <div class="contact-me__wrapper-contact">
+            <h2 class="second-title">Обратная связь</h2>
+    
+            <form action="php/send_email.php" class="contact-me__form">
+                <div class="input-wrapper left">
+                    <label class="label bold" for="userName">Имя</label>
+                    <input class="input" type="text" id="userName" name="userName" placeholder="Введите ваше имя" required />
+                </div>
+                <div class="input-wrapper right">
+                    <label class="label bold" for="email">E-mail</label>
+                    <input class="input" type="email" id="email" name="email" placeholder="Введите ваш e-mail адрес" required />
+                </div>
+                <div class="cls"></div>
+    
+                <div class="textarea-wrapper">
+                    <label class="label bold" for="message">Сообщение</label>
+                    <textarea
+                        class="textarea"
+                        name="details"
+                        placeholder="Подробно опишите, с какой целью хотите связаться с нами"
+                        id="details"
+                        cols="30"
+                        rows="10"
+                        required
+                    ></textarea>
+                </div>
+                <div class="button-container">
+                    <a href="index.html" type="button" class="but-exi">Выйти</a>
+                    <button type="submit" class="submit">Отправить</button>
+                </div>
+                
+            </form>
+        </div>
+    </section>
+    <script src="js/conScript.js"></script>
+</body>
+</html>

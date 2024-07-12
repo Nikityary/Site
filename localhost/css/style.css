@@ -1,0 +1,877 @@
+/* Переменные */
+:root {
+    --color-white: #fff;
+    --color-green: #76bc21;
+    --color-text: #7a7a7a;
+    --color-gray: #9e9e9e;
+    --color-light-gray: #e9e9e9;
+    --color-text-black: #262626;
+
+    --color-green-opacity: rgb(118, 188, 33, .8);
+
+    --background-black-opacity: rgb(0, 0, 0, .7);
+    --background-light-black-opacity: rgb(0, 0, 0, .5);
+    --background-grey: rgb(225, 225, 225, .3);
+
+    --box-shadow-color: 0 0 10px rgb(0 0 0 / 0.3);
+
+    /* Work vars */
+    --work-wrapper: 900px;
+    --work-element: 400px;
+    --work-year: 40px;
+    --work-border-left: 3px;
+
+    --work-margin: calc(var(--work-wrapper) / 2 - var(--work-element));
+
+    --work-indent-before: calc(0px - var(--work-margin));
+    --work-indent-after: calc(0px - var(--work-margin) - var(--work-year) / 2);
+
+    --work-animation-hidden: calc(110vw / 2);
+    --work-animation-end-margin: 10px;
+}
+
+/* Header стили */
+
+.header-bg {
+    background-image: url('/images/mainimg.jpg');
+    background-size: cover; /* масштабирует изображение, чтобы покрыть весь фон */
+    background-position: center; /* центрирует изображение */
+    height: 100vh; /* устанавливает высоту секции на 100% высоты окна браузера */
+}
+.header {
+    position: relative;
+    bottom: 80px;
+    height: 110vh;
+    clip-path: polygon(100% 0, 100% 86%, 54% 100%, 0 88%, 0 0);
+}
+
+.header__background {
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    object-fit: cover;
+    filter: blur(1px) opacity(.9) saturate(200%);
+}
+.header__background-wrapper {
+    position: absolute;
+    height: inherit;
+    width: 100%;
+
+    background: rgb(0, 0, 0, .5);
+
+    z-index: 1;
+}
+
+.header-top {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    height: 80px;
+
+    color: var(--color-white);
+    background: var(--background-black-opacity);
+
+    z-index: 3;
+}
+.header-top a.link {
+    color: var(--color-white);
+}
+
+.logo {
+    width: 260px;
+    font-size: 36px;
+    white-space: nowrap;
+}
+
+.menu-element {
+    margin-right: 25px;
+
+    font-size: 22px;
+}
+.menu-element:last-child {
+    margin-right: 0;
+}
+.menu-element a.link.active, .menu-element a.link:hover {
+    color: var(--color-green);
+}
+
+.menu-element__link.home svg {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+/* Центрируем форму */
+#enter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Занимаем всю высоту экрана */
+}
+
+/* Общие стили для центрирования */
+/*body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}*/
+
+.contact-me__wrapper-contact {
+    max-width: 1000px; /* Ширина контейнера, можете изменить на свое усмотрение */
+    width: 100%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-me__form {
+    display: flex;
+    flex-direction: column;
+}
+/*
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-wrapper.left {
+    margin-right: 10px;
+}
+
+.input-wrapper.right {
+    margin-left: 10px;
+}
+
+.textarea-wrapper {
+    margin-bottom: 15px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}*/
+
+/* Стили для кнопок и ссылок */
+.but-exi {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.but-exi:hover {
+    background-color: #555;
+}
+
+.submit {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+/* Зеленая граница вокруг формы */
+.contact-me__form {
+    border: 2px solid var(--color-green);
+    padding: 20px;
+    border-radius: 10px; /* Если хотите закругленные углы */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 400px; 
+}
+
+.switcher-container {
+    width: 260px;
+}
+.switcher-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 135px;
+    padding: 0 10px;
+    background: var(--color-green);
+    border-radius: 20px;
+    opacity: .9;
+
+    transition: opacity .25s ease;
+    cursor: pointer;
+}
+.switcher-wrapper:hover {
+    opacity: 1;
+}
+.switcher-wrapper input[type="radio"] {
+    display: none;
+}
+
+.switcher-wrapper .switcher {
+    position: relative;
+
+    flex: 1 1 calc(100% / 3);
+
+    text-align: center;
+    color: var(--color-white);
+
+    transition: color .25s ease-in-out;
+    z-index: 2;
+    cursor: pointer;
+}
+.switcher-wrapper input[type="radio"]:checked + .switcher {
+    color: var(--color-green);
+}
+
+.lang-placeholder {
+    width: 40px;
+    height: 30px;
+    background: var(--color-white);
+    position: absolute;
+    z-index: 1;
+    border-radius: 20px;
+
+    transition: left .25s ease-in-out;
+}
+.switcher-wrapper input[type="radio"]:nth-of-type(1):checked ~ .lang-placeholder {
+    left: 9px;
+}
+.switcher-wrapper input[type="radio"]:nth-of-type(2):checked ~ .lang-placeholder {
+    left: 47px;
+}
+.switcher-wrapper input[type="radio"]:nth-of-type(3):checked ~ .lang-placeholder {
+    left: 86px;
+}
+
+.header-center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+
+    color: var(--color-white);
+
+    z-index: 2;
+}
+.header-center__wrapper {
+    width: 100%;
+    padding: 20px 0;
+
+    background: var(--background-black-opacity);
+    text-align: center;
+}
+
+.name {
+    font-size: 58px;
+    line-height: 74px;
+}
+
+.description {
+    display: inline-block;
+    width: 672px;
+
+    font-size: 22px;
+    line-height: 1.5em;
+    white-space: nowrap;
+
+    border-right: 3px solid transparent;
+
+    overflow: hidden;
+    
+    animation: cursor 0.75s 8, print-text 5s steps(58);
+}
+
+@keyframes cursor {
+    0% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--color-white);
+    }
+
+    100% {
+        border-color: transparent;
+    }
+}
+
+@keyframes print-text {
+    from {
+        width: 0;
+    }
+}
+
+/* Секция о нас */
+.about-me {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 60px 60px;
+}
+
+.about-me .row {
+    display: flex;
+    width: 100%;
+    gap: 60px;
+}
+
+.about-me .left {
+    flex: 1 1 40%;
+}
+.about-me .right {
+    flex: 1 1 60%;
+}
+
+.about-me__image {
+    width: 550px;
+    margin-left: auto;
+    border-radius: 10px;
+    filter: drop-shadow(10px 10px 10px var(--background-black-opacity));
+}
+
+.about-me__title {
+    font-size: 36px;
+}
+
+.about-me__description {
+    font-size: 20px;
+    color: var(--color-text);
+    margin-bottom: 15px;
+}
+
+ul.about-me__extra {
+    color: var(--color-text);
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.about-me__extra-element {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.about-me__extra-element:last-of-type {
+    margin-bottom: 0;
+}
+
+.about-me__extra-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.about-me__extra-icon svg {
+    color: var(--color-green);
+}
+
+.about-me__youtube {
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.about-me__iframe {
+    border-radius: 10px;
+    filter: drop-shadow(10px 10px 10px var(--background-black-opacity));
+}
+
+.support-button {
+    position: relative;
+    display: inline-flex;
+    height: 45px;
+    padding: 0 15px;
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 45px;
+    background: var(--color-green);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 4px;
+    opacity: .9;
+    transition: .1s ease;
+}
+.support-button:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 2px solid var(--background-light-black-opacity);
+    border-radius: 4px;
+    transform: rotate(-5deg);
+    transition: all .25s ease;
+}
+
+.support-button:hover {
+    opacity: 1;
+}
+.support-button:hover::before {
+    transform: rotate(0);
+}
+
+/* Секция работ*/
+.interests {
+    padding: 40px 20px;
+}
+
+.interests__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.interest-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 30%;
+    padding: 20px 10px;
+
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-color);
+}
+
+.interest-image img {
+    width: 490px;
+    height: 275px;
+    margin-bottom: 20px;
+}
+
+.interest-title {
+    margin-bottom: 15px;
+
+    font-size: 25px;
+    color: var(--color-text-black);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.submit, .but-exi {
+    display: block;
+    margin: 0.5em auto; /* Центрируем кнопки и добавляем отступ между ними */
+    width: 100%;
+    max-width: 200px; /* Ограничиваем максимальную ширину кнопок */
+    padding: 0.7em 1.5em;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.25s ease;
+    text-align: center;
+}
+
+.submit:hover, .but-exi:hover {
+    opacity: 1;
+}
+
+.but-exi {
+    margin-left: auto; /* Ensure it's aligned to the right */
+}
+
+
+.interest-text {
+    color: var(--color-text);
+    margin-bottom: 12px;
+}
+.interest-text:last-of-type {
+    margin-bottom: 0;
+}
+/* Секция обратная связь */
+.contact-me {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 400px; 
+}
+
+.enter-form {
+    flex-direction: column;
+    position: relative;
+    padding: 40px 0;
+}
+
+.enter-from_form {
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.enter-form__wrapper{
+    flex-direction: column;
+}
+
+.input-wrapper {
+    width: 48%;
+}
+.input-wrapper.left {
+    float: left;
+}
+.input-wrapper.right {
+    float: right;
+}
+
+.textarea-wrapper {
+    margin-top: 20px;
+}
+
+.label {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    font-size: 20px;
+}
+.label:before {
+    content: "";
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+
+    margin-right: 8px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.input, .textarea {
+    width: 100%;
+    border: none;
+    outline: 1px solid var(--color-gray);
+}
+
+.input {
+    padding: 5px 5px 5px 20px;
+}
+
+.textarea {
+    padding: 20px;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 60px;
+}
+
+.input:focus, .textarea:focus {
+    outline: 1px solid var(--color-green);
+}
+
+.submit {
+    display: block;
+    /*height: 45px;
+    padding: 10px 20px;
+    margin-top: 10px;*/
+    margin-left: auto;
+
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    background: var(--color-green);
+    outline: none;
+    box-shadow: none;
+    color: var(--color-white);
+
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .25s ease;
+}
+.submit:hover {
+    opacity: 1;
+}
+
+.form-result {
+    position: absolute;
+    inset: 0;
+    background: var(--background-light-black-opacity);
+}
+
+.form-result__content {
+    max-width: 1200px;
+    font-size: 20px;
+    color: var(--color-white);
+}
+
+/* Подвал сайта */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.social-element__link {
+    width: 25px;
+    height: 25px;
+}
+
+.footer-about {
+    color: var(--color-text);
+}
+
+/* Общие стили */
+html {
+    scroll-behavior: smooth;
+}
+
+a.link {
+    color: var(--color-green);
+    fill: var(--color-green);
+    text-decoration: none;
+    transition: opacity .25s ease;
+}
+a.link:hover {
+    opacity: .7;
+}
+
+.block-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gray {
+    color: var(--color-gray);
+}
+
+.bold {
+    font-weight: 700;
+    color: var(--color-text-black);
+}
+
+.block {
+    display: block;
+}
+
+.second-title {
+    position: relative;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.second-title:after {
+    --underline-width: 60px;
+
+    content: "";
+
+    display: inline-block;
+    width: var(--underline-width);
+    height: 2px;
+
+    position: absolute;
+    bottom: -7px;
+    left: calc(50% - var(--underline-width) / 2);
+
+    background: var(--color-green);
+}
+
+.section-description {
+    margin-bottom: 40px;
+    font-size: 18px;
+    text-align: center;
+    color: var(--color-text-black);
+}
+
+.section-grey {
+    background: var(--background-grey);
+}
+
+.active {
+    color: var(--color-green);
+}
+
+.cls {
+    clear: both;
+}
+
+.overlay {
+    position: relative;
+    width: 100%;
+}
+.overlay__block {
+    position: absolute;
+    inset: 0;
+    background: rgb(0, 0, 0, .1);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+.overlay__text {
+    position: absolute;
+    padding: 0 20px;
+    z-index: 2;
+    text-align: center;
+
+}
+.overlay__image {
+    filter: blur(20px);
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+/* Слайдер изображений */
+.slider {
+    position: relative;
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+}
+
+.slider__wrapper {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+
+    transition: all .5s ease;
+}
+
+.slider__link {
+    flex: 1 1 33%;
+}
+
+.slider__image {
+    width: 100%;
+    max-width: 250px;
+}
+
+.slider__input {
+    display: none;
+}
+
+.slider__controls {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    gap: 20px;
+}
+
+.slider__controls-element {
+    display: inline-block;
+    width: 40px;
+    height: 8px;
+
+    border-radius: 8px;
+    background: rgb(0 0 0 / 20%);
+
+    cursor: pointer;
+    transition: all .25s ease;
+}
+.slider__controls-element:hover,
+.slider__input:first-of-type:checked ~ .slider__controls .slider__controls-element:first-of-type,
+.slider__input:nth-of-type(2):checked ~ .slider__controls .slider__controls-element:nth-of-type(2),
+.slider__input:nth-of-type(3):checked ~ .slider__controls .slider__controls-element:nth-of-type(3),
+.slider__input:nth-of-type(4):checked ~ .slider__controls .slider__controls-element:nth-of-type(4),
+.slider__input:nth-of-type(5):checked ~ .slider__controls .slider__controls-element:nth-of-type(5) {
+    background: var(--color-green);
+}
+
+.slider__input:first-of-type:checked ~ .slider__wrapper:first-of-type {
+    margin-left: 0;
+}
+.slider__input:nth-of-type(2):checked ~ .slider__wrapper:first-of-type {
+    margin-left: -100%;
+}
+.slider__input:nth-of-type(3):checked ~ .slider__wrapper:first-of-type {
+    margin-left: -200%;
+}
+.slider__input:nth-of-type(4):checked ~ .slider__wrapper:first-of-type {
+    margin-left: -300%;
+}
+.slider__input:nth-of-type(5):checked ~ .slider__wrapper:first-of-type {
+    margin-left: -400%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+
+
+.input-wrapper {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.input {
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+.submit {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0.7em 1.5em;
+    background-color: #4CAF50; /* Цвет кнопки */
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-self: center; /* Центровка кнопки */
+}
+
+.submit:hover {
+    background-color: #45a049; /* Цвет кнопки при наведении */
+}

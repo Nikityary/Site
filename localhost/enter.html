@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+</head>
+<body>
+    <section class="contact-me observer-section" id="enter-form" flex-direction ="column">
+        <div class="contact-me__wrapper">
+            <form id="loginForm" class="contact-me__form">
+                <div class="input-wrapper">
+                    <label class="label bold" for="userName">Логин</label>
+                    <input class="input" type="text" id="userName" name="userName" placeholder="Введите ваш логин" required />
+                </div>
+                <div class="input-wrapper">
+                    <label class="label bold" for="password">Пароль</label>
+                    <input class="input" type="password" id="password" name="password" placeholder="Введите ваш пароль" required />
+                    <button type="submit" class="submit">Вход</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="js/enter.js"></script>
+</body>
+</html>
